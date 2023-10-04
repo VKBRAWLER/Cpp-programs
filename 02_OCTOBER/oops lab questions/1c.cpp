@@ -8,11 +8,16 @@ class Energy {
     public:
     Energy() {
         cout << "Enter User's Name: ";
-        cin >> this->Name;
+        getline(cin, this->Name);
         cout << "Enter Unit: ";
         cin >> this->Unit;
     }
-    void calculate() {
+    void calculate();
+    void output() {
+        cout << this->Name << " is entitled to pay Rs. " << Amount << endl;
+    }
+};
+void Energy::calculate() {
     if (this->Unit > 300) {
         this->Amount = ((this->Unit - 300)*90 + 100*80 + 100*60)*1.15;
     }
@@ -24,10 +29,6 @@ class Energy {
     }
     this->Amount = (this->Amount/100) + 50;
     }
-    void output() {
-        cout << this->Name << " is entitled to pay Rs. " << Amount << endl;
-    }
-};
 int main() {
     Energy u1;
     u1.calculate();
