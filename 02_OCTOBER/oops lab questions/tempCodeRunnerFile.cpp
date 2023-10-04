@@ -1,0 +1,1 @@
+cout << User << " is entitled to pay Rs. " << Amount << endl;

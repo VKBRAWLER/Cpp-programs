@@ -2,35 +2,35 @@
 #include<iostream>
 #include<string>
 using namespace std;
-
-int main() {
-    string User;
-    float Amount, Unit;
-    
-    cout << "Enter User's Name: ";
-    cin >> User;
-    cout << "Enter Unit: ";
-    cin >> Unit;
-
-    if (Unit > 300) {
-        Amount = ((Unit - 300) * 90 + 200 * 80 + 100 * 60);
+class Energy {
+    float Unit, Amount;
+    string Name;
+    public:
+    Energy() {
+        cout << "Enter User's Name: ";
+        cin >> this->Name;
+        cout << "Enter Unit: ";
+        cin >> this->Unit;
     }
-    else if (Unit > 100) {
-        Amount = ((Unit - 100) * 80 + 100 * 60);
+    void calculate() {
+    if (this->Unit > 300) {
+        this->Amount = ((this->Unit - 300)*90 + 100*80 + 100*60)*1.15;
+    }
+    else if (this->Unit > 100) {
+        this->Amount = (this->Unit - 100)*80 + 100*60; 
     }
     else {
-        Amount = Unit * 60;
+        this->Amount = this->Unit*60;
     }
-
-    if (Amount > 300) {
-        Amount += (0.15 * Amount);
+    this->Amount = (this->Amount/100) + 50;
     }
-
-    if (Amount < 50) {
-        Amount = 50;
+    void output() {
+        cout << this->Name << " is entitled to pay Rs. " << Amount << endl;
     }
-
-    cout << User << " is entitled to pay " << Amount << " paise" << endl;
-
+};
+int main() {
+    Energy u1;
+    u1.calculate();
+    u1.output();
     return 0;
 }
