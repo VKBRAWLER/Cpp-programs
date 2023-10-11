@@ -1,45 +1,35 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
+#include <sstream>
 using namespace std;
-int pal(string temp) {
-    int i = 0, j = temp.length()-1;
-    while (i < j) {
-        if (temp[i] != temp[j]) {
-            return 0;
+
+bool isPalindrome(string str) {
+    int n = str.length();
+    for (int i = 0; i < n / 2; i++) {
+        if (str[i] != str[n - i - 1]) {
+            return false;
         }
-        i++;
-        j--;
     }
-    return 1;
-}
+    return true;
+} 
+
 int main() {
-    string sen;
-    getline(cin, sen);
-    int s = 0, st = 0, w = 0;
-    string temp, newsen;
-    for (int i = 0; i < sen[i] != '\0'; i++) {
-        if (sen[i] == ' ') {
-            st = 0;
-            for (int j = s; j < i; j++) {
-                temp[st] = sen[j];
-                st++;
-            }
-            if (pal(temp)) {
-                for (int j = s; j < i; j++) {
-                    newsen[w] = sen[j];
-                    w++;
-                }
-            }
-            else {
-                for (int j = s; j < i; j++) {
-                    newsen[w] = '*';
-                    w++;
-                }
-            }
-            newsen[w] = ' ';
-            w++;
-            s = i+1;
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    istringstream iss(input);
+    string word;
+    string output = "";
+    while (iss >> word) {
+        if (isPalindrome(word)) {
+            output += string(word.length(), '*') + " ";
+        } else {
+            output += word + " ";
         }
     }
-    cout << newsen << endl;
+
+    cout << "Modified string: " << output << endl;
+
+    return 0;
 }
