@@ -18,7 +18,7 @@ class student {
     cin >> marks2;
   }
   void get() {
-    cout << "roll no. : " << rollno << "\nMarks 1: " << marks1 << "\nMarks 2" << marks2 << endl;
+    cout << "roll no. : " << rollno << "\nMarks 1: " << marks1 << "\nMarks 2: " << marks2 << endl;
   }
   void max(student s) {
     if (marks1 + marks2 > s.marks1 + s.marks2) {

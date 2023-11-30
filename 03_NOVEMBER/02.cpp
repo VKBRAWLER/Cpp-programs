@@ -26,7 +26,7 @@ class student {
     get();
   }
   void get() {
-    cout << "roll no. : " << rollno << "\nMarks 1: " << marks1 << "\nMarks 2" << marks2 << "\nMarks 3" << marks3 << endl;
+    cout << "roll no. : " << rollno << "\nMarks 1: " << marks1 << "\nMarks 2: " << marks2 << "\nMarks 3: " << marks3 << endl;
   }
 };
 
