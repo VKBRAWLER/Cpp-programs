@@ -5,8 +5,21 @@ using namespace std;
 class student {
   int rollno, marks;
   public:
-  student () {
-    cout << "End" << endl;
+  void set() {
+    cout << "Enter the roll no.: ";
+    cin >> rollno;
+    cout << "Enter marks: ";
+    cin >> marks;
+  }
+  void get() {
+    cout << "roll no.: " << rollno << " marks: " << marks << endl;
+  }
+  void add(student** array, int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+      sum += array[i]->marks;
+    }
+    cout << "Sum of all students marks: " << sum;
   }
 };
 int main() {
@@ -17,4 +30,11 @@ int main() {
     for (int i = 0; i < n; i++) {
         students[i] = new student();
     }
+    for (int i = 0; i < n; i++) {
+        students[i]->set();
+    }
+    for (int i = 0; i < n; i++) {
+        students[i]->get();
+    }
+  students[0]->add(students, n);
 }
