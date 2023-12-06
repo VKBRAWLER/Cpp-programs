@@ -21,16 +21,16 @@ class Product {
     this->Insert();
    }
   void Insert () {
-    cout << "Enter Product ID ";
-    cin >> Product_Id;
-    // cout << "Enter Product Name ";
+    cout << "Enter Product ID: ";
+    cin >> this->Product_Id;
+    // cout << "Enter Product Name: ";
     // cin >> Product_Name;
-    // cout << "Enter Total Sale ";
+    // cout << "Enter Total Sale: ";
     // cin >> Total_sale;
-    // cout << "Enter Product Grade ";
+    // cout << "Enter Product Grade: ";
     // cin >> Product_Grade;
     next = NULL;
-    cout << "count: " << count << " front: " << front << " rear: " << rear << endl;
+    // cout << "count: " << count << " front: " << front << " rear: " << rear << endl;
   }
   static void Delete () {
     if (!realcount()) { cout << "Queue Underflow" << endl; return; }
@@ -46,7 +46,7 @@ class Product {
     }
     return i;
   }
-  static void dis() {
+  static void Display() {
     Product* p = rear;
     while (p != NULL) {
       cout << " " << p->Product_Id << " ->";
@@ -55,26 +55,28 @@ class Product {
     cout << " NULL" << endl;
   }
 };
-void enqueue() {
-  Product* newProduct = new Product();
-}
 Product* Product::front;
 Product* Product::rear;
 int Product::count = 0;
 int main() {
   int choice;
-  Product* p;
+  Product* newProduct = nullptr;
   while (1) {
     cout << "Enter your choice: ";
+    fflush(stdin);
     cin >> choice;
     switch (choice) {
     case 1:
-      enqueue();
+      newProduct = new Product();
       break;
     case 2:
-      Product::dis();
+      Product::Delete();
+      break;
+    case 3:
+      Product::Display();
       break;
     default:
+      delete newProduct;
       exit(1);
       break;
     }
