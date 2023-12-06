@@ -55,6 +55,9 @@ class Product {
     cout << " NULL" << endl;
   }
 };
+void enqueue() {
+  Product* newProduct = new Product();
+}
 Product* Product::front;
 Product* Product::rear;
 int Product::count = 0;
@@ -66,7 +69,7 @@ int main() {
     cin >> choice;
     switch (choice) {
     case 1:
-      p = new Product;
+      enqueue();
       break;
     case 2:
       Product::dis();
