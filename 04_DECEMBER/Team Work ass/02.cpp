@@ -16,7 +16,7 @@ void Insert(LL** L) {
   cin >> newLL->data;
   newLL->next = NULL;
   // cout << "Memory Allocated" << endl;
-  if (*L == NULL) { *L = newLL;   cout << "Func called";
+  if (*L == NULL) { *L = newLL;
 }
   else {
     LL *p = *L;
@@ -27,6 +27,7 @@ void Insert(LL** L) {
   }
 }
 void Display(LL** L) {
+  cout << "Func called";
   LL *p = *L;
   while(p != NULL) {
     cout << " " << p->data << " ->";
