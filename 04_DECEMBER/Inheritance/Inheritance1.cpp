@@ -4,7 +4,7 @@ using namespace std;
 
 class Stack{
   protected:
-    enum { MAX=3};
+    enum { MAX=3 };
     int st[MAX];
     int top;
   public:
@@ -35,6 +35,14 @@ class Stack2:public Stack{
 };
 
 int main(){
-
+  Stack2 s1;
+  s1.push(11);
+  s1.push(22);
+  s1.push(33);
+  s1.push(44);
+  cout<<s1.pop()<<endl;
+  cout<<s1.pop()<<endl;
+  cout<<s1.pop()<<endl;
+  cout<<s1.pop()<<endl;
   return 0;
 }
